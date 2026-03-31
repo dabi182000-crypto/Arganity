@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — Arganity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DIN Next LT Arabic', 'Segoe UI', Arial, sans-serif; background: #fff; color: #231f20; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
+    :root {
+      --green: #45a750; --green-dark: #3a8f43; --gold: #E9C177; --gold-dark: #D4A84E;
+      --black: #231f20; --white: #ffffff; --off-white: #FAFAF8; --light-grey: #F4F4F2;
+      --border: #E5E5E3; --text-muted: #6B6B6B;
+    }
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 40px; }
+    .pill-btn { display: inline-block; border-radius: 50px; padding: 13px 32px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: all 0.25s ease; border: 2px solid transparent; }
+    .pill-btn-black { background: var(--black); color: #fff; border-color: var(--black); }
+    .pill-btn-black:hover { background: transparent; color: var(--black); }
+    .pill-btn-gold { background: var(--gold); color: #fff; border-color: var(--gold); }
+    .pill-btn-gold:hover { background: transparent; color: var(--gold); }
+    .pill-btn-green { background: var(--green); color: #fff; border-color: var(--green); }
+    .pill-btn-green:hover { background: transparent; color: var(--green); }
+    .pill-btn-outline-black { background: transparent; color: var(--black); border-color: var(--black); }
+    .pill-btn-outline-black:hover { background: var(--black); color: #fff; }
+
+    /* TOP BAR */
+    .top-bar { background: var(--black); color: rgba(255,255,255,0.85); font-size: 12px; letter-spacing: 0.08em; text-align: center; padding: 10px 40px; display: flex; align-items: center; justify-content: space-between; }
+    .top-bar-center { font-weight: 700; color: var(--gold); letter-spacing: 0.15em; }
+
+    /* HEADER */
+    .site-header { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; transition: box-shadow 0.3s ease; }
+    .header-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; }
+    .header-nav { display: flex; gap: 28px; align-items: center; }
+    .header-nav a { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 400; color: var(--black); position: relative; padding-bottom: 3px; transition: color 0.2s; }
+    .header-nav a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: var(--gold); transform: translateX(-50%); transition: width 0.3s ease; }
+    .header-nav a:hover { color: var(--green); }
+    .header-nav a:hover::after, .header-nav a.active::after { width: 100%; }
+    .header-nav a.active { color: var(--green); }
+    .header-logo { text-align: center; display: flex; align-items: center; justify-content: center; }
+    .header-actions { display: flex; gap: 20px; align-items: center; justify-content: flex-end; }
+    .header-actions button, .header-actions a { background: none; border: none; cursor: pointer; color: var(--black); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+    .header-actions button:hover, .header-actions a:hover { color: var(--green); }
+    .cart-count { background: var(--green); color: #fff; width: 18px; height: 18px; border-radius: 50%; font-size: 10px; display: flex; align-items: center; justify-content: center; }
+
+    /* PAGE HERO BANNER */
+    .page-hero { background: var(--black); padding: 60px 0; text-align: center; position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(69,167,80,0.15) 0%, transparent 60%); }
+    .page-hero-eyebrow { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 12px; position: relative; }
+    .page-hero h1 { font-size: 40px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; position: relative; }
+    .page-hero h1 span { color: var(--green); }
+    .page-hero p { font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.65); margin-top: 12px; position: relative; }
+
+    /* SECTION */
+    .section { padding: 72px 0; }
+    .section-alt { background: var(--off-white); }
+    .section-title { text-align: center; font-size: 26px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--black); margin-bottom: 8px; }
+    .section-sub { text-align: center; font-size: 14px; font-weight: 300; color: var(--text-muted); margin-bottom: 48px; }
+
+    /* NEWSLETTER */
+    .newsletter-section { background: var(--green); padding: 64px 40px; text-align: center; }
+    .newsletter-section h2 { font-size: 28px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; margin-bottom: 10px; }
+    .newsletter-section p { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.85); margin-bottom: 28px; }
+    .newsletter-form { display: flex; gap: 0; max-width: 480px; margin: 0 auto; }
+    .newsletter-form input { flex: 1; padding: 14px 20px; border: none; border-radius: 50px 0 0 50px; font-size: 14px; outline: none; font-family: inherit; }
+    .newsletter-form button { padding: 14px 28px; background: var(--black); color: #fff; border: none; border-radius: 0 50px 50px 0; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; font-family: inherit; }
+    .newsletter-form button:hover { background: var(--gold); }
+
+    /* FOOTER */
+    .site-footer { background: var(--black); color: #fff; padding: 60px 0 0; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .footer-logo-text { font-size: 20px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 16px; }
+    .footer-tagline { font-size: 13px; font-weight: 300; line-height: 1.7; color: rgba(255,255,255,0.55); margin-bottom: 24px; }
+    .footer-social { display: flex; gap: 10px; }
+    .footer-social a { width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.25); display: flex; align-items: center; justify-content: center; font-size: 14px; transition: all 0.2s; }
+    .footer-social a:hover { background: var(--gold); border-color: var(--gold); }
+    .footer-col h4 { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; margin-bottom: 20px; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul a { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.55); transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--gold); }
+    .footer-bottom { padding: 20px 0; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: rgba(255,255,255,0.35); }
+    .footer-bottom a { color: rgba(255,255,255,0.35); }
+    .footer-bottom a:hover { color: var(--gold); }
+
+    /* LANG TOGGLE */
+    .lang-switch-row { display: flex; align-items: center; gap: 6px; margin-top: 4px; }
+    .lang-divider { color: rgba(0,0,0,0.2); font-size: 13px; }
+    .footer-lang .lang-divider { color: rgba(255,255,255,0.3); }
+    .lang-pill { background: none; border: none; cursor: pointer; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: var(--text-muted); padding: 0; font-family: inherit; transition: color 0.2s; }
+    .lang-pill:hover { color: var(--green); }
+    .lang-pill.active { color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
+    .footer-lang .lang-pill { color: rgba(255,255,255,0.45); }
+    .footer-lang .lang-pill:hover { color: var(--gold); }
+    .footer-lang .lang-pill.active { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+
+    /* PRODUCT CARD */
+    .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .product-card { background: var(--white); border-radius: 8px; overflow: hidden; border: 1px solid var(--border); transition: all 0.3s ease; cursor: pointer; }
+    .product-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.1); transform: translateY(-4px); border-color: var(--gold); }
+    .product-img { aspect-ratio: 1; overflow: hidden; background: var(--light-grey); display: flex; align-items: center; justify-content: center; transition: transform 0.5s ease; }
+    .product-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .product-card:hover .product-img { transform: scale(1.05); }
+    .product-info { padding: 18px; }
+    .product-category { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-dark); font-weight: 700; margin-bottom: 5px; }
+    .product-name { font-size: 13px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 6px; line-height: 1.35; }
+    .product-desc { font-size: 12px; color: var(--text-muted); font-weight: 300; line-height: 1.6; margin-bottom: 10px; }
+    .product-price { font-size: 15px; font-weight: 700; color: var(--black); margin-bottom: 14px; }
+    .product-btns { display: flex; flex-direction: column; gap: 8px; }
+    .product-btns a { width: 100%; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 11px 8px; border-radius: 50px; border: 2px solid; transition: all 0.25s ease; cursor: pointer; }
+    .btn-add { background: var(--green); color: #fff; border-color: var(--green); }
+    .btn-add:hover { background: transparent; color: var(--green); }
+    .btn-buy { background: var(--gold); color: #fff; border-color: var(--gold); }
+    .btn-buy:hover { background: transparent; color: var(--gold-dark); border-color: var(--gold-dark); }
+
+    /* HAMBURGER */
+    .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 44px; height: 44px; background: none; border: none; cursor: pointer; padding: 8px; border-radius: 8px; transition: background 0.2s; }
+    .hamburger:hover { background: var(--light-grey); }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--black); border-radius: 2px; transition: all 0.3s ease; transform-origin: center; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* MOBILE NAV */
+    .mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 2000; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.45); backdrop-filter: blur(2px); }
+    .mobile-nav-drawer { position: relative; width: 80%; max-width: 300px; height: 100%; background: var(--white); display: flex; flex-direction: column; box-shadow: 4px 0 24px rgba(0,0,0,0.15); animation: slideIn 0.3s ease; }
+    @keyframes slideIn { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+    .mobile-nav-header { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid var(--border); }
+    .mobile-nav-header img { height: 36px; }
+    .mobile-nav-close { width: 36px; height: 36px; border-radius: 50%; background: var(--light-grey); border: none; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .mobile-nav-links { flex: 1; overflow-y: auto; padding: 16px 0; }
+    .mobile-nav-links a { display: flex; align-items: center; padding: 16px 24px; font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--black); border-bottom: 1px solid var(--border); transition: color 0.2s, background 0.2s; }
+    .mobile-nav-links a:hover { color: var(--green); background: #f9fff9; }
+    .mobile-nav-footer { padding: 24px; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 10px; }
+    .mobile-nav-footer a { font-size: 12px; color: var(--text-muted); letter-spacing: 0.08em; }
+
+    /* BACK TO TOP */
+    #back-to-top { position: fixed; bottom: 28px; right: 28px; width: 44px; height: 44px; border-radius: 50%; background: var(--green); color: #fff; border: none; font-size: 18px; cursor: pointer; z-index: 9999; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(69,167,80,0.4); transition: all 0.3s; opacity: 0; visibility: hidden; }
+    #back-to-top.visible { opacity: 1; visibility: visible; }
+    #back-to-top:hover { background: var(--gold); transform: translateY(-3px); }
+
+    /* RTL */
+    [dir="rtl"] { font-family: 'DIN Next LT Arabic', 'Segoe UI', Arial, sans-serif; }
+    [dir="rtl"] .header-nav { flex-direction: row-reverse; }
+    [dir="rtl"] .header-actions { flex-direction: row-reverse; }
+    [dir="rtl"] .header-inner { direction: rtl; }
+    [dir="rtl"] .footer-grid { direction: rtl; text-align: right; }
+    [dir="rtl"] .footer-social { flex-direction: row-reverse; }
+    [dir="rtl"] .footer-bottom { flex-direction: row-reverse; }
+    [dir="rtl"] .mobile-nav-links a { text-align: right; justify-content: flex-end; }
+    [dir="rtl"] .mobile-nav-drawer { left: auto; right: 0; animation-name: slideInRTL; }
+    [dir="rtl"] .newsletter-form { flex-direction: row-reverse; }
+    [dir="rtl"] .newsletter-form input { border-radius: 0 50px 50px 0; }
+    [dir="rtl"] .newsletter-form button { border-radius: 50px 0 0 50px; }
+    [dir="rtl"] .product-info { text-align: right; }
+    [dir="rtl"] .trust-item { flex-direction: row-reverse; text-align: right; }
+    @keyframes slideInRTL { from { transform: translateX(100%); } to { transform: translateX(0); } }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .container { padding: 0 16px; }
+      .section { padding: 48px 0; }
+      .top-bar { padding: 8px 16px; justify-content: center; }
+      .header-inner { grid-template-columns: 1fr auto 1fr; padding: 12px 16px; gap: 8px; }
+      .header-nav { display: none; }
+      .header-logo img { height: 34px; margin: 0 auto; }
+      .hamburger { display: flex; justify-content: flex-start; }
+      .header-actions { gap: 12px; justify-content: flex-end; }
+      .header-actions button span:not(.cart-count), .header-actions a span:not(.cart-count) { display: none; }
+      .page-hero h1 { font-size: 26px; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .product-info { padding: 12px; }
+      .product-name { font-size: 12px; }
+      .product-btns a { font-size: 10px; padding: 10px 6px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 0; padding-bottom: 0; border-bottom: none; }
+      .footer-grid > div { padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; padding: 16px 0; font-size: 11px; }
+      .newsletter-section { padding: 48px 20px; }
+      .newsletter-form { flex-direction: column; gap: 10px; }
+      .newsletter-form input { border-radius: 50px; width: 100%; }
+      .newsletter-form button { border-radius: 50px; width: 100%; }
+      #back-to-top { bottom: 16px; right: 16px; width: 40px; height: 40px; }
+      [dir="rtl"] .newsletter-form input { border-radius: 50px; }
+      [dir="rtl"] .newsletter-form button { border-radius: 50px; }
+    }
+
+    /* CONTACT PAGE SPECIFIC */
+    .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .contact-form-wrap h2 { font-size: 22px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 32px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--black); margin-bottom: 8px; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 14px 16px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 14px; font-family: inherit; color: var(--black); background: var(--white); transition: border-color 0.2s; outline: none; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--green); }
+    .form-group textarea { height: 140px; resize: vertical; }
+    .contact-info-wrap h2 { font-size: 22px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 32px; }
+    .contact-card { display: flex; gap: 20px; align-items: flex-start; padding: 24px; border: 1.5px solid var(--border); border-radius: 12px; margin-bottom: 16px; transition: border-color 0.3s, box-shadow 0.3s; }
+    .contact-card:hover { border-color: var(--green); box-shadow: 0 4px 16px rgba(69,167,80,0.1); }
+    .contact-card-icon { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--green), var(--green-dark)); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+    .contact-card-title { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 6px; }
+    .contact-card-text { font-size: 14px; color: var(--black); line-height: 1.7; }
+    .contact-card-text a { color: var(--green); }
+    .map-wrap { margin-top: 48px; border-radius: 12px; overflow: hidden; }
+    @media (max-width: 768px) {
+      .contact-layout { grid-template-columns: 1fr; gap: 40px; }
+    }
+    [dir="rtl"] .contact-layout { direction: rtl; }
+    [dir="rtl"] .contact-card { flex-direction: row-reverse; text-align: right; }
+    [dir="rtl"] .form-group label { text-align: right; }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar" style="justify-content:center;">
+    <div class="top-bar-center" style="position:static;transform:none;" data-i18n="topbar-shipping">✦ FREE SHIPPING ON ORDERS OVER 200 QAR ✦</div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="header-nav">
+        <a href="index.html" data-i18n="nav-home">Home</a>
+        <a href="shop.html" data-i18n="nav-shop">Shop</a>
+        <a href="about.html" data-i18n="nav-about">About</a>
+        <a href="contact.html" class="active" data-i18n="nav-contact">Contact</a>
+      </nav>
+      <div class="header-logo">
+        <a href="index.html">
+          <img src="images/logo.png.png" alt="Arganity" style="height:42px;width:auto;display:block;">
+        </a>
+      </div>
+      <div class="header-actions">
+        <button aria-label="Search">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <span>Search</span>
+        </button>
+        <a href="#" aria-label="Shopping bag">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+          <span>Bag</span>
+          <span class="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV DRAWER -->
+  <div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true">
+    <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+    <div class="mobile-nav-drawer">
+      <div class="mobile-nav-header">
+        <img src="images/logo.png.png" alt="Arganity">
+        <button class="mobile-nav-close" id="mobileNavClose">✕</button>
+      </div>
+      <nav class="mobile-nav-links">
+        <a href="index.html" data-i18n="nav-home">Home</a>
+        <a href="shop.html" data-i18n="nav-shop">Shop</a>
+        <a href="shop.html?cat=1" data-i18n="cat-1">Prickly Pear Seeds</a>
+        <a href="shop.html?cat=2" data-i18n="cat-2">Argan Oil</a>
+        <a href="shop.html?cat=3" data-i18n="cat-3">Cannabis Oil</a>
+        <a href="shop.html?cat=4" data-i18n="cat-4">Clay Masks</a>
+        <a href="about.html" data-i18n="nav-about">About</a>
+        <a href="contact.html" data-i18n="nav-contact">Contact</a>
+      </nav>
+      <div class="mobile-nav-footer">
+        <a href="#" data-i18n="f-about">My Account</a>
+        <a href="contact.html" data-i18n="trust-4-title">Customer Service</a>
+        <div class="lang-switch-row">
+          <button class="lang-pill lang-toggle active" data-lang="en">EN</button>
+          <span class="lang-divider">|</span>
+          <button class="lang-pill lang-toggle" data-lang="ar">AR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-eyebrow" data-i18n="contact-eyebrow">Get In Touch</div>
+    <h1 data-i18n="contact-title">Contact <span>Us</span></h1>
+    <p data-i18n="contact-sub">We'd love to hear from you</p>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-layout">
+
+        <!-- FORM -->
+        <div class="contact-form-wrap">
+          <h2 data-i18n="contact-form-h">Send Us a Message</h2>
+          <form onsubmit="return false;">
+            <div class="form-group">
+              <label data-i18n="contact-name">Full Name</label>
+              <input type="text" data-i18n-placeholder="contact-name" placeholder="Full Name">
+            </div>
+            <div class="form-group">
+              <label data-i18n="contact-email">Email Address</label>
+              <input type="email" data-i18n-placeholder="contact-email" placeholder="Email Address">
+            </div>
+            <div class="form-group">
+              <label data-i18n="contact-subject">Subject</label>
+              <select>
+                <option value="general" data-i18n="subject-general">General Inquiry</option>
+                <option value="order" data-i18n="subject-order">Order Support</option>
+                <option value="product" data-i18n="subject-product">Product Question</option>
+                <option value="wholesale" data-i18n="subject-wholesale">Wholesale</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label data-i18n="contact-message">Your Message</label>
+              <textarea data-i18n-placeholder="contact-message" placeholder="Your Message"></textarea>
+            </div>
+            <button type="submit" class="pill-btn pill-btn-green" style="width:100%;justify-content:center;display:flex;" data-i18n="contact-submit">Send Message</button>
+          </form>
+        </div>
+
+        <!-- INFO -->
+        <div class="contact-info-wrap">
+          <h2 data-i18n="contact-info-h">Our Information</h2>
+
+          <div class="contact-card">
+            <div class="contact-card-icon">📍</div>
+            <div>
+              <div class="contact-card-title">Find Us</div>
+              <div class="contact-card-text">Almusllam Law Firm<br>Doha, Qatar</div>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-card-icon">📞</div>
+            <div>
+              <div class="contact-card-title">24/7 Support</div>
+              <div class="contact-card-text">
+                Call: <a href="tel:+97430213333">+974 30213333</a><br>
+                Email: <a href="mailto:Info@arganity.com">Info@arganity.com</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-card-icon">🕐</div>
+            <div>
+              <div class="contact-card-title">Working Hours</div>
+              <div class="contact-card-text">Sun – Fri: 08:30 – 20:00</div>
+            </div>
+          </div>
+
+          <!-- MAP -->
+          <div class="map-wrap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.5!2d51.5310!3d25.2854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDE3JzA3LjQiTiA1McKwMzEnNTEuNiJF!5e0!3m2!1sen!2sqa!4v1234567890" width="100%" height="380" style="border:0;border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter-section">
+    <h2 data-i18n="nl-title">Unlock Your Beauty Ritual</h2>
+    <p data-i18n="nl-sub">Subscribe for exclusive offers, beauty tips, and new arrivals from Morocco.</p>
+    <form class="newsletter-form" onsubmit="return false;">
+      <input type="email" data-i18n-placeholder="nl-placeholder" placeholder="Enter your email address">
+      <button type="submit" data-i18n="nl-btn">Subscribe</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo-text"><img src="images/logo1.png.png" alt="Arganity" style="height:36px;width:auto;filter:brightness(0) invert(1);display:block;"></div>
+          <p class="footer-tagline" data-i18n="footer-tagline">A luxury organic skincare brand inspired by the rich beauty traditions of Morocco. From the Atlas Mountains to Doha, Qatar.</p>
+          <div class="footer-social">
+            <a href="#">ig</a>
+            <a href="#">fb</a>
+            <a href="#">tk</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer-shop-h">Shop</h4>
+          <ul>
+            <li><a href="shop.html?cat=1" data-i18n="cat-1">Prickly Pear Seeds</a></li>
+            <li><a href="shop.html?cat=2" data-i18n="cat-2">Argan Oil</a></li>
+            <li><a href="shop.html?cat=3" data-i18n="cat-3">Cannabis Oil</a></li>
+            <li><a href="shop.html?cat=4" data-i18n="cat-4">Clay Masks</a></li>
+            <li><a href="shop.html" data-i18n="f-best">Best Sellers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer-company-h">Company</h4>
+          <ul>
+            <li><a href="about.html" data-i18n="f-about">About Arganity</a></li>
+            <li><a href="about.html" data-i18n="f-story">Our Story</a></li>
+            <li><a href="contact.html" data-i18n="f-contact">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer-support-h">Support</h4>
+          <ul>
+            <li><a href="#" data-i18n="f-shipping">Shipping Info</a></li>
+            <li><a href="#" data-i18n="f-returns">Returns & Refunds</a></li>
+            <li><a href="#" data-i18n="f-privacy">Privacy Policy</a></li>
+            <li><a href="#" data-i18n="f-terms">Terms of Service</a></li>
+            <li><a href="#" data-i18n="f-faq">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer-copy">© 2026 Arganity.com. Doha, Qatar.</span>
+        <span style="display:flex;align-items:center;gap:12px;">
+          <a href="#">Privacy</a> &nbsp;·&nbsp;
+          <a href="#">Terms</a>
+          &nbsp;·&nbsp;
+          <span class="lang-switch-row footer-lang">
+            <button class="lang-pill lang-toggle active" data-lang="en">EN</button>
+            <span class="lang-divider">|</span>
+            <button class="lang-pill lang-toggle" data-lang="ar">AR</button>
+          </span>
+        </span>
+      </div>
+    </div>
+  </footer>
+  <button id="back-to-top">↑</button>
+
+  <script>
+    var backBtn = document.getElementById('back-to-top');
+    backBtn.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    var header = document.querySelector('.site-header');
+    window.addEventListener('scroll', function() {
+      header.style.boxShadow = window.pageYOffset > 50 ? '0 2px 16px rgba(0,0,0,0.08)' : 'none';
+      backBtn.classList.toggle('visible', window.pageYOffset > 400);
+    }, { passive: true });
+    var hamburger = document.getElementById('hamburger');
+    var mobileNav = document.getElementById('mobileNav');
+    var mobileNavClose = document.getElementById('mobileNavClose');
+    var backdrop = document.getElementById('mobileNavBackdrop');
+    function openNav() { mobileNav.classList.add('open'); hamburger.classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function closeNav() { mobileNav.classList.remove('open'); hamburger.classList.remove('open'); document.body.style.overflow = ''; }
+    hamburger.addEventListener('click', openNav);
+    mobileNavClose.addEventListener('click', closeNav);
+    backdrop.addEventListener('click', closeNav);
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeNav(); });
+    document.querySelectorAll('.mobile-nav-links a').forEach(function(link) { link.addEventListener('click', closeNav); });
+
+    var translations = {
+      en: {
+        'topbar-shipping': '✦ FREE SHIPPING ON ORDERS OVER 200 QAR ✦',
+        'nav-home': 'Home', 'nav-shop': 'Shop', 'nav-about': 'About', 'nav-contact': 'Contact',
+        'cat-1': 'Prickly Pear Seeds', 'cat-2': 'Argan Oil', 'cat-3': 'Cannabis Oil', 'cat-4': 'Clay Masks',
+        'btn-shop-now': 'Shop Now', 'btn-add-cart': 'Add to Cart', 'btn-buy-now': 'Buy Now',
+        'trust-4-title': 'Have Questions?',
+        'nl-title': 'Unlock Your Beauty Ritual',
+        'nl-sub': 'Subscribe for exclusive offers, beauty tips, and new arrivals from Morocco.',
+        'nl-placeholder': 'Enter your email address', 'nl-btn': 'Subscribe',
+        'footer-tagline': 'A luxury organic skincare brand inspired by the rich beauty traditions of Morocco. From the Atlas Mountains to Doha, Qatar.',
+        'footer-shop-h': 'Shop', 'f-serums': 'Serums', 'f-creams': 'Creams', 'f-oils': 'Oils', 'f-hair': 'Hair Care', 'f-best': 'Best Sellers',
+        'footer-company-h': 'Company', 'f-about': 'About Arganity', 'f-story': 'Our Story', 'f-contact': 'Contact Us', 'f-blog': 'Blog',
+        'footer-support-h': 'Support', 'f-shipping': 'Shipping Info', 'f-returns': 'Returns & Refunds', 'f-privacy': 'Privacy Policy', 'f-terms': 'Terms of Service', 'f-faq': 'FAQ',
+        'footer-copy': '© 2026 Arganity.com. Doha, Qatar.',
+        'contact-eyebrow': 'Get In Touch', 'contact-title': 'Contact <span>Us</span>', 'contact-sub': "We'd love to hear from you",
+        'contact-form-h': 'Send Us a Message', 'contact-info-h': 'Our Information', 'contact-submit': 'Send Message',
+        'contact-name': 'Full Name', 'contact-email': 'Email Address', 'contact-subject': 'Subject', 'contact-message': 'Your Message',
+        'subject-general': 'General Inquiry', 'subject-order': 'Order Support', 'subject-product': 'Product Question', 'subject-wholesale': 'Wholesale'
+      },
+      ar: {
+        'topbar-shipping': '✦ شحن مجاني للطلبات فوق 200 ريال قطري ✦',
+        'nav-home': 'الرئيسية', 'nav-shop': 'المتجر', 'nav-about': 'من نحن', 'nav-contact': 'تواصل معنا',
+        'cat-1': 'بذور التين الشوكي', 'cat-2': 'زيت الأرغان', 'cat-3': 'زيت القنب', 'cat-4': 'أقنعة الطين',
+        'btn-shop-now': 'تسوق الآن', 'btn-add-cart': 'أضف للسلة', 'btn-buy-now': 'اشتري الآن',
+        'trust-4-title': 'هل لديك سؤال؟',
+        'nl-title': 'اكتشفي طقوس جمالك',
+        'nl-sub': 'اشتركي للحصول على عروض حصرية ونصائح تجميلية ووصولات جديدة من المغرب.',
+        'nl-placeholder': 'أدخل بريدك الإلكتروني', 'nl-btn': 'اشترك',
+        'footer-tagline': 'علامة تجارية فاخرة للعناية بالبشرة مستوحاة من تقاليد الجمال المغربية الغنية.',
+        'footer-shop-h': 'تسوق', 'f-serums': 'سيروم', 'f-creams': 'كريمات', 'f-oils': 'زيوت', 'f-hair': 'العناية بالشعر', 'f-best': 'الأكثر مبيعاً',
+        'footer-company-h': 'الشركة', 'f-about': 'عن أرغانيتي', 'f-story': 'قصتنا', 'f-contact': 'تواصل معنا', 'f-blog': 'المدونة',
+        'footer-support-h': 'الدعم', 'f-shipping': 'معلومات الشحن', 'f-returns': 'الإرجاع والاسترداد', 'f-privacy': 'سياسة الخصوصية', 'f-terms': 'شروط الخدمة', 'f-faq': 'الأسئلة الشائعة',
+        'footer-copy': '© 2026 Arganity.com. الدوحة، قطر.',
+        'contact-eyebrow': 'تواصل معنا', 'contact-title': 'اتصل <span>بنا</span>', 'contact-sub': 'يسعدنا سماعك',
+        'contact-form-h': 'أرسل لنا رسالة', 'contact-info-h': 'معلوماتنا', 'contact-submit': 'إرسال الرسالة',
+        'contact-name': 'الاسم الكامل', 'contact-email': 'البريد الإلكتروني', 'contact-subject': 'الموضوع', 'contact-message': 'رسالتك',
+        'subject-general': 'استفسار عام', 'subject-order': 'دعم الطلبات', 'subject-product': 'سؤال عن منتج', 'subject-wholesale': 'البيع بالجملة'
+      }
+    };
+    var currentLang = 'en';
+    function applyLanguage(lang) {
+      var t = translations[lang];
+      document.querySelectorAll('[data-i18n]').forEach(function(el) { var key = el.getAttribute('data-i18n'); if (t[key] !== undefined) el.innerHTML = t[key]; });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) { var key = el.getAttribute('data-i18n-placeholder'); if (t[key] !== undefined) el.placeholder = t[key]; });
+      document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+      document.documentElement.setAttribute('lang', lang);
+      document.querySelectorAll('.lang-pill').forEach(function(btn) { btn.classList.toggle('active', btn.getAttribute('data-lang') === lang); });
+      currentLang = lang;
+    }
+    document.querySelectorAll('.lang-pill').forEach(function(btn) { btn.addEventListener('click', function() { applyLanguage(btn.getAttribute('data-lang')); }); });
+  </script>
+</body>
+</html>
