@@ -1,0 +1,338 @@
+/* ============================================
+   ARGANITY — WooCommerce Specific Overrides
+   Fixes for shop page, cart, checkout, notices
+   ============================================ */
+
+/* ============================================
+   SHOP / ARCHIVE PAGE
+   ============================================ */
+
+/* Shop page title */
+.woocommerce-products-header__title,
+.page-title {
+  font-family: 'DIN Next LT Arabic', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 32px !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: var(--color-text) !important;
+  margin-bottom: 8px !important;
+}
+
+/* Result count "Showing all 6 results" */
+.woocommerce-result-count {
+  font-family: 'DIN Next LT Arabic', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: 14px !important;
+  color: var(--color-text-muted) !important;
+}
+
+/* Sort dropdown */
+.woocommerce-ordering select {
+  font-family: 'DIN Next LT Arabic', sans-serif !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 8px 32px 8px 12px !important;
+  font-size: 13px !important;
+  color: var(--color-text-muted) !important;
+  background-color: var(--color-white) !important;
+  cursor: pointer;
+}
+
+/* Product grid layout */
+.woocommerce ul.products {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+  gap: 24px !important;
+}
+
+.woocommerce ul.products li.product {
+  width: 100% !important;
+  margin: 0 !important;
+  float: none !important;
+}
+
+/* ============================================
+   SALE BADGE
+   ============================================ */
+
+.woocommerce span.onsale,
+.onsale {
+  background-color: var(--color-accent) !important;
+  color: var(--color-white) !important;
+  font-family: 'DIN Next LT Arabic', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 6px 14px !important;
+  min-width: auto !important;
+  min-height: auto !important;
+  line-height: 1.4 !important;
+  top: 12px !important;
+  left: 12px !important;
+  right: auto !important;
+}
+
+/* ============================================
+   CART PAGE
+   ============================================ */
+
+/* Cart table */
+.woocommerce-cart-form table,
+.shop_table {
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-md) !important;
+  overflow: hidden;
+}
+
+.shop_table th {
+  font-family: 'DIN Next LT Arabic', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 12px !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  background-color: var(--color-bg-alt) !important;
+  color: var(--color-text) !important;
+  padding: 16px !important;
+  border-bottom: 1px solid var(--color-border) !important;
+}
+
+.shop_table td {
+  padding: 16px !important;
+  border-bottom: 1px solid var(--color-border) !important;
+  vertical-align: middle !important;
+}
+
+/* Cart product name */
+.shop_table .product-name a {
+  font-weight: 700 !important;
+  color: var(--color-text) !important;
+  font-size: 14px !important;
+}
+
+.shop_table .product-name a:hover {
+  color: var(--color-primary) !important;
+}
+
+/* Cart thumbnail */
+.shop_table .product-thumbnail img {
+  border-radius: var(--radius-sm) !important;
+  width: 80px !important;
+}
+
+/* Remove item link */
+.shop_table .product-remove a {
+  color: var(--color-text-light) !important;
+  font-size: 20px !important;
+}
+
+.shop_table .product-remove a:hover {
+  color: #c00 !important;
+}
+
+/* Cart actions buttons */
+.woocommerce .cart .button,
+.woocommerce .cart input[type="submit"],
+.coupon .button {
+  background-color: var(--color-primary) !important;
+  color: var(--color-white) !important;
+  border: 2px solid var(--color-primary) !important;
+  border-radius: 30px !important;
+  padding: 12px 28px !important;
+  font-family: 'DIN Next LT Arabic', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 12px !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  transition: var(--transition) !important;
+  cursor: pointer;
+}
+
+.woocommerce .cart .button:hover,
+.coupon .button:hover {
+  background-color: transparent !important;
+  color: var(--color-primary) !important;
+}
+
+/* Cart totals box */
+.cart_totals {
+  background: var(--color-white) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-md) !important;
+  padding: 24px !important;
+}
+
+.cart_totals h2 {
+  font-size: 18px !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 16px !important;
+}
+
+/* Proceed to Checkout button */
+.wc-proceed-to-checkout .checkout-button,
+a.checkout-button {
+  background-color: var(--color-accent) !important;
+  color: var(--color-white) !important;
+  border: 2px solid var(--color-accent) !important;
+  border-radius: 30px !important;
+  padding: 16px 32px !important;
+  font-family: 'DIN Next LT Arabic', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  transition: var(--transition) !important;
+  display: block !important;
+  text-align: center !important;
+}
+
+.wc-proceed-to-checkout .checkout-button:hover {
+  background-color: var(--color-accent-dark) !important;
+}
+
+/* ============================================
+   CHECKOUT PAGE
+   ============================================ */
+
+/* Checkout form fields */
+.woocommerce-checkout .form-row label {
+  font-family: 'DIN Next LT Arabic', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 12px !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: var(--color-text) !important;
+  margin-bottom: 6px !important;
+}
+
+.woocommerce-checkout .form-row input,
+.woocommerce-checkout .form-row select,
+.woocommerce-checkout .form-row textarea {
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 12px 16px !important;
+  font-size: 14px !important;
+}
+
+/* Order review section */
+.woocommerce-checkout-review-order-table {
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-md) !important;
+  overflow: hidden;
+}
+
+/* Place Order button */
+#place_order {
+  background-color: var(--color-accent) !important;
+  color: var(--color-white) !important;
+  border: none !important;
+  border-radius: 30px !important;
+  padding: 16px 40px !important;
+  font-family: 'DIN Next LT Arabic', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  width: 100% !important;
+  transition: var(--transition) !important;
+  cursor: pointer;
+}
+
+#place_order:hover {
+  background-color: var(--color-accent-dark) !important;
+  transform: translateY(-1px);
+}
+
+/* Payment methods */
+.woocommerce-checkout-payment {
+  background: var(--color-bg-alt) !important;
+  border-radius: var(--radius-md) !important;
+  padding: 24px !important;
+}
+
+.wc_payment_method label {
+  font-weight: 400 !important;
+  cursor: pointer;
+}
+
+/* ============================================
+   NOTICES & MESSAGES
+   ============================================ */
+
+.woocommerce-message {
+  border-top-color: var(--color-primary) !important;
+  background-color: rgba(69, 167, 80, 0.05) !important;
+  border-radius: var(--radius-sm) !important;
+  font-family: 'DIN Next LT Arabic', sans-serif !important;
+}
+
+.woocommerce-message::before {
+  color: var(--color-primary) !important;
+}
+
+.woocommerce-message .button {
+  background-color: var(--color-primary) !important;
+  color: var(--color-white) !important;
+  border-radius: 30px !important;
+  font-size: 12px !important;
+  padding: 8px 20px !important;
+}
+
+.woocommerce-error {
+  border-top-color: #c00 !important;
+  border-radius: var(--radius-sm) !important;
+}
+
+.woocommerce-info {
+  border-top-color: var(--color-accent) !important;
+  background-color: rgba(201, 169, 110, 0.05) !important;
+  border-radius: var(--radius-sm) !important;
+}
+
+/* ============================================
+   EMPTY CART / EMPTY SHOP
+   ============================================ */
+
+.cart-empty,
+.woocommerce-info {
+  text-align: center !important;
+  padding: 40px !important;
+}
+
+.cart-empty + .return-to-shop .button,
+.woocommerce-info + .return-to-shop .button {
+  background-color: var(--color-primary) !important;
+  color: var(--color-white) !important;
+  border-radius: 30px !important;
+}
+
+/* ============================================
+   MY ACCOUNT
+   ============================================ */
+
+.woocommerce-MyAccount-navigation ul {
+  list-style: none !important;
+  padding: 0 !important;
+}
+
+.woocommerce-MyAccount-navigation ul li {
+  border-bottom: 1px solid var(--color-border) !important;
+}
+
+.woocommerce-MyAccount-navigation ul li a {
+  display: block !important;
+  padding: 12px 16px !important;
+  font-family: 'DIN Next LT Arabic', sans-serif !important;
+  font-size: 14px !important;
+  color: var(--color-text) !important;
+  transition: var(--transition);
+}
+
+.woocommerce-MyAccount-navigation ul li.is-active a,
+.woocommerce-MyAccount-navigation ul li a:hover {
+  color: var(--color-primary) !important;
+  background-color: rgba(69, 167, 80, 0.05) !important;
+}

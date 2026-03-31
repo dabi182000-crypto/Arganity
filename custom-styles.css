@@ -1,0 +1,686 @@
+/* ============================================
+   ARGANITY — Custom Store Styles
+   Brand: Moroccan Luxury Organic Skincare
+   Typography: DIN Next LT Arabic
+   ============================================ */
+
+/* --- CSS Variables (Brand Palette) --- */
+:root {
+  --color-primary: #45a750;
+  --color-primary-light: #56b860;
+  --color-primary-dark: #3a8f43;
+  --color-accent: #E9C177;
+  --color-accent-light: #F0D49A;
+  --color-accent-dark: #D4A84E;
+  --color-bg: #FDFAF6;
+  --color-bg-alt: #F5F0E8;
+  --color-text: #231f20;
+  --color-text-muted: #6B6B6B;
+  --color-text-light: #999999;
+  --color-white: #FFFFFF;
+  --color-border: #E8E2D9;
+  --color-dark: #231f20;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --transition: all 0.3s ease;
+}
+
+/* --- Global Resets & Base --- */
+body {
+  background-color: var(--color-bg) !important;
+  color: var(--color-text) !important;
+  font-family: 'DIN Next LT Arabic', 'DIN Next LT W23', sans-serif !important;
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'DIN Next LT Arabic', 'DIN Next LT W23', sans-serif !important;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+
+p, span, li, a, label, input, textarea, select, button {
+  font-family: 'DIN Next LT Arabic', 'DIN Next LT W23', sans-serif !important;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+/* --- Selection Color --- */
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+/* ============================================
+   HEADER / NAVIGATION
+   ============================================ */
+
+/* Sticky header with clean styling */
+header,
+.site-header,
+.elementor-location-header {
+  background-color: var(--color-white) !important;
+  transition: var(--transition);
+  border-bottom: 1px solid var(--color-border) !important;
+}
+
+/* Remove pink/salmon top border if present */
+header::before,
+.site-header::before,
+.elementor-location-header::before {
+  display: none !important;
+}
+
+/* Navigation links */
+.elementor-nav-menu .elementor-item,
+nav a,
+.menu-item a {
+  font-family: 'DIN Next LT Arabic', sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 13px !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: var(--color-text) !important;
+  transition: var(--transition) !important;
+  position: relative;
+}
+
+.elementor-nav-menu .elementor-item:hover,
+nav a:hover,
+.menu-item a:hover {
+  color: var(--color-primary) !important;
+}
+
+/* Active nav item */
+.elementor-item.elementor-item-active,
+.current-menu-item > a {
+  color: var(--color-primary) !important;
+}
+
+/* Nav underline hover effect */
+.elementor-nav-menu .elementor-item::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-accent);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.elementor-nav-menu .elementor-item:hover::after {
+  width: 100%;
+}
+
+/* Cart icon */
+.elementor-menu-cart__toggle-button,
+.cart-icon,
+a[href*="cart"] .elementor-icon {
+  color: var(--color-text) !important;
+}
+
+.elementor-menu-cart__toggle-button:hover {
+  color: var(--color-primary) !important;
+}
+
+/* Cart count badge */
+.elementor-button-icon .elementor-button-icon-qty,
+.cart-count,
+.wc-cart-count {
+  background-color: var(--color-primary) !important;
+  color: var(--color-white) !important;
+  font-size: 10px !important;
+  min-width: 18px;
+  height: 18px;
+  line-height: 18px;
+  border-radius: 50%;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+/* Hero CTA button */
+.elementor-widget-button .elementor-button,
+a.elementor-button,
+.hero-section .elementor-button {
+  background-color: var(--color-accent) !important;
+  color: var(--color-white) !important;
+  border: 2px solid var(--color-accent) !important;
+  border-radius: 30px !important;
+  padding: 14px 36px !important;
+  font-family: 'DIN Next LT Arabic', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  transition: var(--transition) !important;
+}
+
+.elementor-widget-button .elementor-button:hover,
+a.elementor-button:hover {
+  background-color: transparent !important;
+  color: var(--color-accent) !important;
+  border-color: var(--color-accent) !important;
+  transform: translateY(-1px);
+}
+
+/* Hero section subtitle */
+.hero-section .elementor-widget-heading .elementor-heading-title,
+section:first-of-type .elementor-widget-text-editor {
+  font-weight: 300 !important;
+  letter-spacing: 0.15em;
+}
+
+/* ============================================
+   SECTION HEADINGS
+   ============================================ */
+
+/* Section titles like "MOST LOVED BY THE CUSTOMERS" */
+.elementor-heading-title {
+  font-family: 'DIN Next LT Arabic', sans-serif !important;
+  color: var(--color-text) !important;
+}
+
+/* Section subtitles */
+.elementor-widget-text-editor p {
+  color: var(--color-text-muted) !important;
+  font-weight: 300;
+}
+
+/* ============================================
+   PRODUCT CARDS
+   ============================================ */
+
+/* Product card container */
+.wc-block-grid__product,
+.products .product,
+li.product,
+.elementor-widget-woocommerce-products .product {
+  background: var(--color-white) !important;
+  border-radius: var(--radius-md) !important;
+  overflow: hidden;
+  transition: var(--transition) !important;
+  border: 1px solid var(--color-border);
+  padding-bottom: 20px !important;
+}
+
+.wc-block-grid__product:hover,
+.products .product:hover,
+li.product:hover {
+  box-shadow: var(--shadow-md) !important;
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
+}
+
+/* Product image container */
+.wc-block-grid__product-image,
+.products .product .attachment-woocommerce_thumbnail,
+.woocommerce-LoopProduct-link img,
+li.product img {
+  transition: transform 0.5s ease !important;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+li.product:hover img,
+.products .product:hover img {
+  transform: scale(1.05);
+}
+
+/* Product image wrapper overflow hidden for zoom effect */
+.products .product .woocommerce-loop-product__link,
+li.product > a:first-child {
+  overflow: hidden;
+  display: block;
+}
+
+/* Product title */
+.wc-block-grid__product-title,
+.woocommerce-loop-product__title,
+li.product .woocommerce-loop-product__title {
+  font-family: 'DIN Next LT Arabic', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: var(--color-text) !important;
+  margin: 16px 16px 8px !important;
+  padding: 0 !important;
+}
+
+/* Product price */
+.wc-block-grid__product-price,
+.woocommerce-Price-amount,
+li.product .price {
+  font-family: 'DIN Next LT Arabic', sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 15px !important;
+  color: var(--color-text-muted) !important;
+  margin: 0 16px !important;
+}
+
+/* Add to Cart button on product cards */
+.wc-block-grid__product .wp-block-button__link,
+.products .product .button,
+li.product .button,
+.add_to_cart_button {
+  background-color: var(--color-primary) !important;
+  color: var(--color-white) !important;
+  border: 2px solid var(--color-primary) !important;
+  border-radius: 30px !important;
+  padding: 10px 24px !important;
+  font-family: 'DIN Next LT Arabic', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  transition: var(--transition) !important;
+  margin: 8px 6px !important;
+}
+
+.add_to_cart_button:hover,
+li.product .button:hover {
+  background-color: transparent !important;
+  color: var(--color-primary) !important;
+}
+
+/* Buy Now button on product cards */
+a[href*="quick-buy-now"],
+.buy-now-button,
+a.button[href*="checkout"] {
+  background-color: var(--color-accent) !important;
+  color: var(--color-white) !important;
+  border: 2px solid var(--color-accent) !important;
+  border-radius: 30px !important;
+  padding: 10px 24px !important;
+  font-family: 'DIN Next LT Arabic', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  transition: var(--transition) !important;
+}
+
+a[href*="quick-buy-now"]:hover,
+a.button[href*="checkout"]:hover {
+  background-color: transparent !important;
+  color: var(--color-accent) !important;
+}
+
+/* ============================================
+   TESTIMONIALS SECTION
+   ============================================ */
+
+/* Testimonial cards */
+.elementor-testimonial,
+.elementor-widget-testimonial {
+  background: var(--color-white) !important;
+  border-radius: var(--radius-md) !important;
+  padding: 32px 28px !important;
+  box-shadow: var(--shadow-sm) !important;
+  border: 1px solid var(--color-border);
+  transition: var(--transition);
+}
+
+.elementor-testimonial:hover {
+  box-shadow: var(--shadow-md) !important;
+}
+
+/* Testimonial text */
+.elementor-testimonial__text,
+.elementor-testimonial-content {
+  font-family: 'DIN Next LT Arabic', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: 15px !important;
+  line-height: 1.8 !important;
+  color: var(--color-text-muted) !important;
+  font-style: italic;
+}
+
+/* Testimonial reviewer name */
+.elementor-testimonial__name,
+.elementor-testimonial-name {
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: var(--color-text) !important;
+  margin-top: 16px !important;
+}
+
+/* Testimonial avatar */
+.elementor-testimonial__image img,
+.elementor-testimonial-image img {
+  border-radius: 50% !important;
+  border: 3px solid var(--color-accent) !important;
+  width: 60px !important;
+  height: 60px !important;
+  object-fit: cover;
+}
+
+/* Star ratings */
+.elementor-star-rating,
+.star-rating {
+  color: var(--color-accent) !important;
+}
+
+/* Quote marks decoration */
+.elementor-testimonial::before {
+  content: '\201C';
+  font-size: 64px;
+  color: var(--color-accent);
+  opacity: 0.3;
+  font-family: Georgia, serif;
+  line-height: 1;
+  position: absolute;
+  top: 16px;
+  left: 20px;
+}
+
+/* Green divider above testimonials — refine */
+.elementor-divider-separator {
+  border-color: var(--color-accent) !important;
+  width: 40px !important;
+}
+
+/* ============================================
+   TRUST BADGES SECTION
+   ============================================ */
+
+.elementor-icon-box-wrapper {
+  padding: 24px 16px;
+  transition: var(--transition);
+}
+
+.elementor-icon-box-icon .elementor-icon {
+  color: var(--color-primary) !important;
+  fill: var(--color-primary) !important;
+}
+
+.elementor-icon-box-title {
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: var(--color-text) !important;
+}
+
+.elementor-icon-box-description {
+  color: var(--color-text-muted) !important;
+  font-weight: 300 !important;
+  font-size: 14px !important;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+footer,
+.site-footer,
+.elementor-location-footer {
+  background-color: var(--color-dark) !important;
+  color: var(--color-white) !important;
+  padding-top: 60px !important;
+}
+
+footer a,
+.site-footer a,
+.elementor-location-footer a {
+  color: var(--color-bg-alt) !important;
+  transition: var(--transition);
+}
+
+footer a:hover,
+.site-footer a:hover,
+.elementor-location-footer a:hover {
+  color: var(--color-accent) !important;
+}
+
+/* Footer headings */
+footer h1, footer h2, footer h3, footer h4, footer h5, footer h6,
+.site-footer .elementor-heading-title {
+  color: var(--color-white) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+}
+
+/* Footer nav links */
+footer .elementor-nav-menu .elementor-item,
+footer nav a {
+  color: var(--color-bg-alt) !important;
+  font-size: 14px !important;
+  font-weight: 300 !important;
+}
+
+footer .elementor-nav-menu .elementor-item:hover,
+footer nav a:hover {
+  color: var(--color-accent) !important;
+}
+
+/* Footer social icons */
+footer .elementor-social-icon,
+.site-footer .elementor-social-icon {
+  background-color: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: var(--color-white) !important;
+  transition: var(--transition) !important;
+  width: 40px !important;
+  height: 40px !important;
+}
+
+footer .elementor-social-icon:hover {
+  background-color: var(--color-accent) !important;
+  border-color: var(--color-accent) !important;
+}
+
+/* Footer copyright */
+footer .elementor-widget-text-editor p,
+.site-footer .copyright {
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-size: 13px !important;
+  font-weight: 300 !important;
+}
+
+/* Footer language switcher */
+footer .elementor-nav-menu .elementor-item img,
+footer img[src*="flag"] {
+  border-radius: 2px;
+  margin-right: 6px;
+}
+
+/* ============================================
+   BREADCRUMBS
+   ============================================ */
+
+.woocommerce-breadcrumb {
+  font-family: 'DIN Next LT Arabic', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 300 !important;
+  color: var(--color-text-muted) !important;
+  padding: 16px 0 !important;
+}
+
+.woocommerce-breadcrumb a {
+  color: var(--color-text-muted) !important;
+}
+
+.woocommerce-breadcrumb a:hover {
+  color: var(--color-primary) !important;
+}
+
+/* ============================================
+   FORMS & INPUTS
+   ============================================ */
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+textarea,
+select,
+.input-text {
+  font-family: 'DIN Next LT Arabic', sans-serif !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 12px 16px !important;
+  font-size: 14px !important;
+  color: var(--color-text) !important;
+  background-color: var(--color-white) !important;
+  transition: var(--transition) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--color-primary) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(69, 167, 80, 0.1) !important;
+}
+
+/* ============================================
+   QUANTITY INPUT
+   ============================================ */
+
+.quantity input[type="number"] {
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-sm) !important;
+  width: 60px !important;
+  text-align: center !important;
+  font-weight: 700 !important;
+}
+
+/* ============================================
+   SCROLL TO TOP (if present)
+   ============================================ */
+
+.scroll-to-top,
+#scrollToTop {
+  background-color: var(--color-primary) !important;
+  color: var(--color-white) !important;
+  border-radius: 50% !important;
+  width: 44px;
+  height: 44px;
+  box-shadow: var(--shadow-md);
+}
+
+/* ============================================
+   ANIMATIONS & TRANSITIONS
+   ============================================ */
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fade in animation for sections */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   RESPONSIVE — MOBILE
+   ============================================ */
+
+@media (max-width: 767px) {
+  /* Reduce heading sizes on mobile */
+  h1, .elementor-heading-title[style*="font-size"] {
+    font-size: 28px !important;
+  }
+
+  h2 {
+    font-size: 22px !important;
+  }
+
+  /* Stack product buttons */
+  li.product .button,
+  .add_to_cart_button,
+  a[href*="quick-buy-now"] {
+    display: block !important;
+    width: calc(100% - 32px) !important;
+    margin: 4px 16px !important;
+    text-align: center !important;
+  }
+
+  /* Reduce padding on mobile */
+  .elementor-section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Footer spacing */
+  footer {
+    padding-top: 40px !important;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 768px) {
+  /* Tablet adjustments */
+  .products .product,
+  li.product {
+    width: 48% !important;
+  }
+}
+
+/* ============================================
+   REMOVE PINK/SALMON TOP BORDER
+   ============================================ */
+
+/* The current site has a pinkish border at the top of sections */
+.elementor-section::before,
+.elementor-top-section::before {
+  background-color: transparent !important;
+}
+
+/* Remove any default WooCommerce notice styling conflicts */
+.woocommerce-info,
+.woocommerce-message {
+  border-top-color: var(--color-primary) !important;
+}
+
+.woocommerce-info::before,
+.woocommerce-message::before {
+  color: var(--color-primary) !important;
+}
+
+/* ============================================
+   LOADING / SKELETON STATES
+   ============================================ */
+
+.woocommerce .blockUI.blockOverlay {
+  background-color: var(--color-bg) !important;
+  opacity: 0.7 !important;
+}
+
+.woocommerce .loader::before,
+.woocommerce .blockUI.blockOverlay::before {
+  border-top-color: var(--color-primary) !important;
+}
