@@ -561,7 +561,7 @@
     var avgDisplay = product.avgRating > 0 ? product.avgRating.toFixed(1) : '—';
     var reviewLabel = product.totalReviews + ' review' + (product.totalReviews !== 1 ? 's' : '');
 
-    document.getElementById('productPage').innerHTML = '<div class="container"><div class="breadcrumb"><a href="index.html">Home</a> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg> <a href="shop.html">Shop</a> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg> <span>' + product.name + '</span></div></div>'
+    document.getElementById('productPage').innerHTML = ''
     + '<section class="product-section"><div class="container"><div class="product-layout">'
     // Gallery
     + '<div class="product-gallery"><div class="main-image-wrap"><img id="mainImg" src="' + product.image + '" alt="' + product.name + '"></div><div class="thumbnails"><div class="thumb active"><img src="' + product.image + '" alt="' + product.name + '"></div></div></div>'
