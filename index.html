@@ -160,89 +160,68 @@
       align-items: center; justify-content: center;
     }
 
-    /* === HERO — SPLIT LAYOUT (iT Cosmetics style) === */
+    /* === HERO — FULL-WIDTH BACKGROUND IMAGE === */
     .hero {
-      display: grid;
-      grid-template-columns: 55% 45%;
-      min-height: 540px;
-    }
-    .hero-image {
-      background: linear-gradient(135deg, #2e5e3a 0%, #1e3d29 50%, #3a7a46 100%);
       position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-    }
-    .hero-image-overlay {
-      position: absolute;
-      inset: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="150" cy="50" r="120" fill="rgba(233,193,119,0.08)"/><circle cx="30" cy="180" r="80" fill="rgba(255,255,255,0.04)"/></svg>') no-repeat center;
-      background-size: cover;
-    }
-    .hero-product-mockup {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      padding: 40px 40px 0;
-    }
-    .hero-product-mockup .product-visual {
-      width: 240px;
-      height: 360px;
-      background: rgba(255,255,255,0.12);
-      border-radius: 120px 120px 0 0;
-      margin: 0 auto;
+      min-height: 580px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 80px;
-      border: 1px solid rgba(255,255,255,0.15);
-      backdrop-filter: blur(4px);
       overflow: hidden;
+    }
+    .hero-bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.38) 60%, rgba(0,0,0,0.18) 100%);
+      z-index: 1;
     }
     .hero-content {
-      background: linear-gradient(rgba(250,250,248,0.9), rgba(250,250,248,0.9)), url('images/pattern2.png') no-repeat center/cover, var(--off-white);
-      opacity: 1;
+      position: relative;
+      z-index: 2;
       display: flex;
       align-items: center;
-      padding: 60px 64px;
-      position: relative;
+      padding: 80px 64px;
+      width: 100%;
     }
-    .hero-content::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(250,250,248,0.88);
-      pointer-events: none;
-    }
-    .hero-content-inner { position: relative; z-index: 1; }
-    .hero-content-inner { max-width: 420px; }
+    .hero-content-inner { max-width: 480px; }
     .hero-eyebrow {
       font-size: 11px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--green);
+      color: var(--gold);
       font-weight: 700;
       margin-bottom: 16px;
     }
     .hero-title {
-      font-size: 42px;
+      font-size: 48px;
       font-weight: 700;
       line-height: 1.1;
       letter-spacing: 0.02em;
-      color: var(--black);
+      color: #ffffff;
       margin-bottom: 16px;
       text-transform: uppercase;
     }
-    .hero-title span { color: var(--green); }
+    .hero-title span { color: var(--gold); }
     .hero-subtitle {
       font-size: 15px;
       font-weight: 300;
       line-height: 1.7;
-      color: var(--text-muted);
-      margin-bottom: 32px;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 36px;
     }
     .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-actions .pill-btn-outline-black { color: #fff; border-color: rgba(255,255,255,0.7); }
+    .hero-actions .pill-btn-outline-black:hover { background: #fff; color: var(--black); border-color: #fff; }
+    .hero-actions .pill-btn-black { background: var(--gold); border-color: var(--gold); color: var(--black); }
+    .hero-actions .pill-btn-black:hover { background: transparent; color: var(--gold); border-color: var(--gold); }
 
     /* === PROMO STRIP === */
     .promo-strip {
@@ -855,9 +834,9 @@
       .header-actions a span:not(.cart-count) { display: none; }
 
       /* Hero */
-      .hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-image { min-height: 55vw; max-height: 420px; }
-      .hero-content { padding: 32px 20px; }
+      .hero { min-height: 480px; }
+      .hero-content { padding: 48px 24px; }
+      .hero-title { font-size: 36px; }
       .hero-eyebrow { font-size: 10px; margin-bottom: 10px; }
       .hero-title { font-size: 30px; margin-bottom: 12px; }
       .hero-subtitle { font-size: 14px; margin-bottom: 24px; }
@@ -955,8 +934,8 @@
 
     /* === RESPONSIVE — SMALL PHONES (480px) === */
     @media (max-width: 480px) {
-      .hero-title { font-size: 26px; }
-      .hero-image { min-height: 60vw; }
+      .hero-title { font-size: 28px; }
+      .hero { min-height: 420px; }
       .category-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
       .product-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
       .pill-btn { padding: 11px 20px; font-size: 10px; }
@@ -989,7 +968,7 @@
       </nav>
 
       <div class="header-logo">
-        <a href="#">
+        <a href="index.html">
           <img src="images/logo.png.png" alt="Arganity" style="height:42px;width:auto;display:block;">
         </a>
       </div>
@@ -999,7 +978,7 @@
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
           <span>Search</span>
         </button>
-        <a href="#" aria-label="Shopping bag">
+        <a href="shop.html" aria-label="Shopping bag">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
           <span>Bag</span>
           <span class="cart-count">0</span>
@@ -1019,16 +998,16 @@
       <nav class="mobile-nav-links">
         <a href="index.html" data-i18n="nav-home">Home</a>
         <a href="shop.html" data-i18n="nav-shop">Shop</a>
-        <a href="shop.html?cat=1" data-i18n="cat-1">Prickly Pear Seeds</a>
-        <a href="shop.html?cat=2" data-i18n="cat-2">Argan Oil</a>
-        <a href="shop.html?cat=3" data-i18n="cat-3">Cannabis Oil</a>
-        <a href="shop.html?cat=4" data-i18n="cat-4">Clay Masks</a>
+        <a href="shop.html?cat=haircare" data-i18n="cat-1">Hair Care</a>
+        <a href="shop.html?cat=skincare" data-i18n="cat-2">Skin Care</a>
+        <a href="shop.html?cat=eyecare" data-i18n="cat-3">Eye Care</a>
+        <a href="shop.html?cat=bodycare" data-i18n="cat-4">Body Care</a>
         <a href="about.html" data-i18n="nav-about">About</a>
         <a href="contact.html" data-i18n="nav-contact">Contact</a>
       </nav>
       <div class="mobile-nav-footer">
-        <a href="#" data-i18n="f-about">My Account</a>
-        <a href="#" data-i18n="trust-4-title">Customer Service</a>
+        <a href="#">My Account</a>
+        <a href="contact.html">Customer Service</a>
         <div class="lang-switch-row">
           <button class="lang-pill lang-toggle active" data-lang="en" id="langToggle">EN</button>
           <span class="lang-divider">|</span>
@@ -1038,19 +1017,18 @@
     </div>
   </div>
 
-  <!-- HERO — SPLIT LAYOUT -->
+  <!-- HERO — FULL BACKGROUND IMAGE -->
   <section class="hero">
-    <div class="hero-image">
-      <img src="images/Full Line.JPG" alt="Arganity Model" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;position:absolute;inset:0;">
-    </div>
+    <img src="images/Full Line.JPG" alt="Arganity Products" class="hero-bg-img">
+    <div class="hero-overlay"></div>
     <div class="hero-content">
       <div class="hero-content-inner">
         <div class="hero-eyebrow" data-i18n="hero-eyebrow">Welcome to Arganity</div>
         <h1 class="hero-title" data-i18n="hero-title">Moroccan<br><span>Beauty</span><br>Secrets</h1>
         <p class="hero-subtitle" data-i18n="hero-subtitle">Pure, organic argan oil and natural botanicals from the Atlas Mountains — crafted for radiant skin and lustrous hair.</p>
         <div class="hero-actions">
-          <a href="#" class="pill-btn pill-btn-black" data-i18n="btn-shop-now">Shop Now</a>
-          <a href="#" class="pill-btn pill-btn-outline-black" data-i18n="btn-our-story">Our Story</a>
+          <a href="shop.html" class="pill-btn pill-btn-black" data-i18n="btn-shop-now">Shop Now</a>
+          <a href="about.html" class="pill-btn pill-btn-outline-black" data-i18n="btn-our-story">Our Story</a>
         </div>
       </div>
     </div>
@@ -1072,32 +1050,32 @@
             <div class="category-card-img-inner"><img src="images/categories/Prickly pear seeds.jpg" alt="Prickly Pear Seeds"></div>
             <div class="cat-overlay"><span class="cat-overlay-label" data-i18n="cat-1">Prickly Pear Seeds</span></div>
           </div>
-          <h3 data-i18n="cat-1">Prickly Pear Seeds</h3>
-          <a href="#" class="pill-btn pill-btn-black" data-i18n="btn-shop-now">Shop Now</a>
+          <h3 data-i18n="cat-1">Hair Care</h3>
+          <a href="shop.html?cat=haircare" class="pill-btn pill-btn-black" data-i18n="btn-shop-now">Shop Now</a>
         </div>
         <div class="category-card cat-creams">
           <div class="category-card-img">
-            <div class="category-card-img-inner"><img src="images/categories/Argan oil.jpg" alt="Argan Oil"></div>
-            <div class="cat-overlay"><span class="cat-overlay-label" data-i18n="cat-2">Argan Oil</span></div>
+            <div class="category-card-img-inner"><img src="images/categories/Argan oil.jpg" alt="Skin Care"></div>
+            <div class="cat-overlay"><span class="cat-overlay-label" data-i18n="cat-2">Skin Care</span></div>
           </div>
-          <h3 data-i18n="cat-2">Argan Oil</h3>
-          <a href="#" class="pill-btn pill-btn-black" data-i18n="btn-shop-now">Shop Now</a>
+          <h3 data-i18n="cat-2">Skin Care</h3>
+          <a href="shop.html?cat=skincare" class="pill-btn pill-btn-black" data-i18n="btn-shop-now">Shop Now</a>
         </div>
         <div class="category-card cat-oils">
           <div class="category-card-img">
-            <div class="category-card-img-inner"><img src="images/categories/Cannabis oil.jpg" alt="Cannabis Oil"></div>
-            <div class="cat-overlay"><span class="cat-overlay-label" data-i18n="cat-3">Cannabis Oil</span></div>
+            <div class="category-card-img-inner"><img src="images/categories/Cannabis oil.jpg" alt="Eye Care"></div>
+            <div class="cat-overlay"><span class="cat-overlay-label" data-i18n="cat-3">Eye Care</span></div>
           </div>
-          <h3 data-i18n="cat-3">Cannabis Oil</h3>
-          <a href="#" class="pill-btn pill-btn-black" data-i18n="btn-shop-now">Shop Now</a>
+          <h3 data-i18n="cat-3">Eye Care</h3>
+          <a href="shop.html?cat=eyecare" class="pill-btn pill-btn-black" data-i18n="btn-shop-now">Shop Now</a>
         </div>
         <div class="category-card cat-hair">
           <div class="category-card-img">
-            <div class="category-card-img-inner"><img src="images/categories/Clay masks.jpg" alt="Clay Masks"></div>
-            <div class="cat-overlay"><span class="cat-overlay-label" data-i18n="cat-4">Clay Masks</span></div>
+            <div class="category-card-img-inner"><img src="images/categories/Clay masks.jpg" alt="Body Care"></div>
+            <div class="cat-overlay"><span class="cat-overlay-label" data-i18n="cat-4">Body Care</span></div>
           </div>
-          <h3 data-i18n="cat-4">Clay Masks</h3>
-          <a href="#" class="pill-btn pill-btn-black" data-i18n="btn-shop-now">Shop Now</a>
+          <h3 data-i18n="cat-4">Body Care</h3>
+          <a href="shop.html?cat=bodycare" class="pill-btn pill-btn-black" data-i18n="btn-shop-now">Shop Now</a>
         </div>
       </div>
     </div>
@@ -1174,7 +1152,7 @@
       <div class="brand-story-eyebrow" data-i18n="brand-eyebrow">From the Atlas Mountains</div>
       <h2 class="brand-story-title" data-i18n="brand-title">Nature Is Our<br>Inspiration</h2>
       <p class="brand-story-text" data-i18n="brand-text">Arganity is more than just a brand — it represents a symbol of the harmonious union of cultures between the State of Qatar and the Kingdom of Morocco. We bring the most pure, natural beauty secrets directly to you.</p>
-      <a href="#" class="pill-btn pill-btn-gold" data-i18n="btn-discover">Discover Our Story</a>
+      <a href="about.html" class="pill-btn pill-btn-gold" data-i18n="btn-discover">Discover Our Story</a>
     </div>
   </div>
 
@@ -1284,27 +1262,27 @@
           <div class="footer-logo-text"><img src="images/logo1.png.png" alt="Arganity" style="height:36px;width:auto;filter:brightness(0) invert(1);display:block;"></div>
           <p class="footer-tagline" data-i18n="footer-tagline">A luxury organic skincare brand inspired by the rich beauty traditions of Morocco. From the Atlas Mountains to Doha, Qatar.</p>
           <div class="footer-social">
-            <a href="#">ig</a>
-            <a href="#">fb</a>
-            <a href="#">tk</a>
+            <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="#" aria-label="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
           </div>
         </div>
         <div class="footer-col">
           <h4 data-i18n="footer-shop-h">Shop</h4>
           <ul>
-            <li><a href="#" data-i18n="f-serums">Serums</a></li>
-            <li><a href="#" data-i18n="f-creams">Creams</a></li>
-            <li><a href="#" data-i18n="f-oils">Oils</a></li>
-            <li><a href="#" data-i18n="f-hair">Hair Care</a></li>
-            <li><a href="#" data-i18n="f-best">Best Sellers</a></li>
+            <li><a href="shop.html?cat=haircare" data-i18n="cat-1">Hair Care</a></li>
+            <li><a href="shop.html?cat=skincare" data-i18n="cat-2">Skin Care</a></li>
+            <li><a href="shop.html?cat=eyecare" data-i18n="cat-3">Eye Care</a></li>
+            <li><a href="shop.html?cat=bodycare" data-i18n="cat-4">Body Care</a></li>
+            <li><a href="shop.html" data-i18n="f-best">Best Sellers</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4 data-i18n="footer-company-h">Company</h4>
           <ul>
-            <li><a href="#" data-i18n="f-about">About Arganity</a></li>
-            <li><a href="#" data-i18n="f-story">Our Story</a></li>
-            <li><a href="#" data-i18n="f-contact">Contact Us</a></li>
+            <li><a href="about.html" data-i18n="f-about">About Arganity</a></li>
+            <li><a href="about.html" data-i18n="f-story">Our Story</a></li>
+            <li><a href="contact.html" data-i18n="f-contact">Contact Us</a></li>
             <li><a href="#" data-i18n="f-blog">Blog</a></li>
           </ul>
         </div>
@@ -1396,7 +1374,7 @@
         'promo-text': 'New arrivals — <span style="color:var(--gold)">Therapeutic Hemp Shampoo</span> now available',
         'cat-title': 'Shop by Category',
         'cat-sub': 'Explore our range of Moroccan organic beauty',
-        'cat-1': 'Prickly Pear Seeds', 'cat-2': 'Argan Oil', 'cat-3': 'Cannabis Oil', 'cat-4': 'Clay Masks',
+        'cat-1': 'Hair Care', 'cat-2': 'Skin Care', 'cat-3': 'Eye Care', 'cat-4': 'Body Care',
         'bestsellers-title': 'Most Loved by Customers', 'bestsellers-sub': 'Meet our best sellers',
         'p1-cat': 'Serums', 'p1-name': 'Power Lifting Serum', 'p1-desc': 'Prickly pear seed oil · anti-aging',
         'p2-cat': 'Creams', 'p2-name': 'Anti-Age Expert Cream', 'p2-desc': 'All skin types · deep hydration',
@@ -1418,7 +1396,7 @@
         'nl-sub': 'Subscribe for exclusive offers, beauty tips, and new arrivals from Morocco.',
         'nl-placeholder': 'Enter your email address', 'nl-btn': 'Subscribe',
         'footer-tagline': 'A luxury organic skincare brand inspired by the rich beauty traditions of Morocco. From the Atlas Mountains to Doha, Qatar.',
-        'footer-shop-h': 'Shop', 'f-serums': 'Serums', 'f-creams': 'Creams', 'f-oils': 'Oils', 'f-hair': 'Hair Care', 'f-best': 'Best Sellers',
+        'footer-shop-h': 'Shop', 'f-best': 'Best Sellers',
         'footer-company-h': 'Company', 'f-about': 'About Arganity', 'f-story': 'Our Story', 'f-contact': 'Contact Us', 'f-blog': 'Blog',
         'footer-support-h': 'Support', 'f-shipping': 'Shipping Info', 'f-returns': 'Returns & Refunds', 'f-privacy': 'Privacy Policy', 'f-terms': 'Terms of Service', 'f-faq': 'FAQ',
         'footer-copy': '© 2026 Arganity.com. Doha, Qatar.',
@@ -1433,7 +1411,7 @@
         'promo-text': 'وصل حديثاً — <span style="color:var(--gold)">شامبو القنب العلاجي</span> متوفر الآن',
         'cat-title': 'تسوق حسب الفئة',
         'cat-sub': 'استكشف تشكيلتنا من منتجات الجمال المغربية العضوية',
-        'cat-1': 'بذور التين الشوكي', 'cat-2': 'زيت الأرغان', 'cat-3': 'زيت القنب', 'cat-4': 'أقنعة الطين',
+        'cat-1': 'العناية بالشعر', 'cat-2': 'العناية بالبشرة', 'cat-3': 'العناية بالعيون', 'cat-4': 'العناية بالجسم',
         'bestsellers-title': 'الأكثر حباً لدى عملائنا', 'bestsellers-sub': 'تعرف على أكثر منتجاتنا مبيعاً',
         'p1-cat': 'سيروم', 'p1-name': 'سيروم رفع البشرة', 'p1-desc': 'زيت بذور التين الشوكي · مضاد للشيخوخة',
         'p2-cat': 'كريمات', 'p2-name': 'كريم خبير مضاد للشيخوخة', 'p2-desc': 'جميع أنواع البشرة · ترطيب عميق',
@@ -1455,7 +1433,7 @@
         'nl-sub': 'اشتركي للحصول على عروض حصرية ونصائح تجميلية ووصولات جديدة من المغرب.',
         'nl-placeholder': 'أدخل بريدك الإلكتروني', 'nl-btn': 'اشترك',
         'footer-tagline': 'علامة تجارية فاخرة للعناية بالبشرة مستوحاة من تقاليد الجمال المغربية الغنية. من جبال الأطلس إلى الدوحة، قطر.',
-        'footer-shop-h': 'تسوق', 'f-serums': 'سيروم', 'f-creams': 'كريمات', 'f-oils': 'زيوت', 'f-hair': 'العناية بالشعر', 'f-best': 'الأكثر مبيعاً',
+        'footer-shop-h': 'تسوق', 'f-best': 'الأكثر مبيعاً',
         'footer-company-h': 'الشركة', 'f-about': 'عن أرغانيتي', 'f-story': 'قصتنا', 'f-contact': 'تواصل معنا', 'f-blog': 'المدونة',
         'footer-support-h': 'الدعم', 'f-shipping': 'معلومات الشحن', 'f-returns': 'الإرجاع والاسترداد', 'f-privacy': 'سياسة الخصوصية', 'f-terms': 'شروط الخدمة', 'f-faq': 'الأسئلة الشائعة',
         'footer-copy': '© 2026 Arganity.com. الدوحة، قطر.',
