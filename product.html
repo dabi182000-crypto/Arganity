@@ -485,16 +485,37 @@
       categoryKey: "prickly-pear",
       price: "34.90",
       image: "images/anti-aging-eye-rollon.jpg.png",
-      descTitle: "ANTI-AGING EYE ROLL'ON",
-      description: ["Coming soon — product description will be added shortly."],
-      benefits: [],
-      howToUse: [],
-      reviews: [],
-      ratingBreakdown: { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 },
-      avgRating: 0,
-      totalReviews: 0,
-      skinType: "All Skin Types",
-      volume: "15ml",
+      descTitle: "ANTI-AGING EYE ROLL'ON – 10 ML",
+      description: [
+        "Revitalize tired eyes with this <strong>ultra-effective</strong> roll-on treatment, powered by pure organic prickly pear oil and selected botanicals to smooth, firm, and brighten the delicate under-eye area."
+      ],
+      benefits: [
+        "Targets dark circles and fine lines for a fresher, more rested look.",
+        "Helps reduce puffiness by stimulating microcirculation around the eye contour.",
+        "Naturally strengthens supporting skin fibers and lightly plumps the skin for improved firmness.",
+        "Provides an instant cooling sensation thanks to the metal roll-on applicator, ideal for fatigued eyes."
+      ],
+      textureFinish: [
+        "Lightweight, fast-absorbing formula suitable for daily use.",
+        "Leaves the eye area soft, hydrated, and comfortable, without greasiness."
+      ],
+      howToUse: [
+        "Use on clean, dry skin.",
+        "With a circular motion, gently roll under the eyes at night, starting from the inner corner outward.",
+        "Allow the product to absorb fully before applying other skincare or makeup.",
+        "For best results, apply daily and avoid direct exposure to sunlight after use."
+      ],
+      reviews: [
+        { name: "Lina A.", date: "March 2025", rating: 5, text: "The cooling sensation from the metal applicator is incredible — instant relief for tired eyes! My dark circles have visibly lightened after 3 weeks of daily use. Such a premium product.", avatar: "L" },
+        { name: "Sara N.", date: "February 2025", rating: 5, text: "I was skeptical about a roll-on eye treatment but this completely won me over. It absorbs quickly, doesn't feel greasy, and the puffiness around my eyes has reduced noticeably.", avatar: "S" },
+        { name: "Maha R.", date: "January 2025", rating: 4, text: "Really lovely product. The formula is so light and refreshing. I use it morning and night and it's become a staple in my routine. The 10ml size is perfect for travel too.", avatar: "M" },
+        { name: "Fatma Q.", date: "January 2025", rating: 5, text: "Best eye treatment I've ever used! The fine lines around my eyes look so much softer. You can really feel the quality of the prickly pear oil — very luxurious.", avatar: "F" }
+      ],
+      ratingBreakdown: { 5: 3, 4: 1, 3: 0, 2: 0, 1: 0 },
+      avgRating: 4.8,
+      totalReviews: 4,
+      skinType: "Delicate Eye Area",
+      volume: "10ml",
       origin: "Morocco"
     }
   };
@@ -546,6 +567,11 @@
       ? '<div class="desc-section-title">KEY BENEFITS</div><ul class="desc-list">' + product.benefits.map(function(b) { return '<li>' + b + '</li>'; }).join('') + '</ul>'
       : '';
 
+    // Texture and finish
+    var textureHtml = (product.textureFinish && product.textureFinish.length > 0)
+      ? '<div class="desc-section-title">TEXTURE AND FINISH</div><ul class="desc-list">' + product.textureFinish.map(function(t) { return '<li>' + t + '</li>'; }).join('') + '</ul>'
+      : '';
+
     // How to use
     var howHtml = product.howToUse.length > 0
       ? '<div class="desc-section-title">HOW TO USE</div><ul class="desc-list">' + product.howToUse.map(function(h) { return '<li>' + h + '</li>'; }).join('') + '</ul>'
@@ -592,7 +618,7 @@
     // Description tab
     + '<div class="tab-content active" id="tab-description"><div class="desc-title">' + product.descTitle + '</div>' + descParagraphs
     + '<div class="cert-badges"><img src="images/Certification%20badges.png" alt="Certifications"></div>'
-    + benefitsHtml + howHtml + '</div>'
+    + benefitsHtml + textureHtml + howHtml + '</div>'
 
     // Reviews tab
     + '<div class="tab-content" id="tab-reviews"><div class="reviews-summary"><div class="reviews-score"><div class="score-number">' + avgDisplay + '</div><div class="score-stars">' + stars(Math.round(product.avgRating), 18) + '</div><div class="score-label">out of 5 · ' + reviewLabel + '</div></div><div class="reviews-bars">' + barsHtml + '</div></div>'
