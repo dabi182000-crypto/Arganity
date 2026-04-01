@@ -118,11 +118,7 @@
     .safe-checkout { border: 1.5px solid var(--border); border-radius: 10px; padding: 14px 20px; text-align: center; }
     .safe-checkout-title { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); font-weight: 700; margin-bottom: 10px; }
     .payment-icons { display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap; }
-    .payment-icon { height: 26px; padding: 4px 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--white); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; letter-spacing: 0.05em; color: var(--black); white-space: nowrap; }
-    .payment-icon.visa { color: #1a1f71; }
-    .payment-icon.master { background: linear-gradient(135deg, #eb001b, #f79e1b); color: #fff; border-color: transparent; }
-    .payment-icon.applepay { background: var(--black); color: #fff; border-color: transparent; }
-    .payment-icon.naps { color: #0066cc; }
+    .payment-icon { height: 32px; padding: 4px 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--white); display: flex; align-items: center; justify-content: center; }
 
     /* PRODUCT META */
     .product-meta { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 8px; }
@@ -540,7 +536,20 @@
     + '<div class="product-info"><div class="product-category-label">' + product.category + '</div><h1 class="product-title">' + product.name + '</h1><div class="product-rating-row"><div class="stars">' + stars(Math.round(product.avgRating)) + '</div><span class="rating-count">(' + reviewLabel + ')</span></div><div class="product-price-row">' + product.price + ' <span class="price-currency">QAR</span></div>'
     + '<div class="purchase-row"><div class="qty-wrap"><button class="qty-btn" id="qtyMinus">−</button><input class="qty-input" type="number" id="qtyInput" value="1" min="1" max="99"><button class="qty-btn" id="qtyPlus">+</button></div><button class="btn-buy-now">Buy Now</button></div>'
     + '<button class="btn-add-cart">Add to Cart</button>'
-    + '<div class="safe-checkout"><div class="safe-checkout-title">Guaranteed Safe Checkout</div><div class="payment-icons"><span class="payment-icon visa">VISA</span><span class="payment-icon master">MC</span><span class="payment-icon naps">NAPS</span><span class="payment-icon applepay"> Pay</span></div></div>'
+    + '<div class="safe-checkout"><div class="safe-checkout-title">Guaranteed Safe Checkout</div><div class="payment-icons">'
+    + '<span class="payment-icon">'
+    +   '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="16" viewBox="0 0 750 471"><rect width="750" height="471" rx="40" fill="#1a1f71"/><text x="375" y="330" font-family="Arial" font-size="260" font-weight="bold" font-style="italic" fill="white" text-anchor="middle">VISA</text></svg>'
+    + '</span>'
+    + '<span class="payment-icon">'
+    +   '<svg xmlns="http://www.w3.org/2000/svg" width="38" height="24" viewBox="0 0 38 24"><rect width="38" height="24" rx="4" fill="#fff"/><circle cx="15" cy="12" r="9" fill="#EB001B"/><circle cx="23" cy="12" r="9" fill="#F79E1B"/><path d="M19 5.9A9 9 0 0 1 23 12a9 9 0 0 1-4 6.1A9 9 0 0 1 15 12a9 9 0 0 1 4-6.1z" fill="#FF5F00"/></svg>'
+    + '</span>'
+    + '<span class="payment-icon" style="background:#005a9e;border-color:#005a9e;">'
+    +   '<svg xmlns="http://www.w3.org/2000/svg" width="46" height="16" viewBox="0 0 120 40"><text x="60" y="30" font-family="Arial" font-size="26" font-weight="900" fill="white" text-anchor="middle" letter-spacing="2">NAPS</text></svg>'
+    + '</span>'
+    + '<span class="payment-icon" style="background:#000;border-color:#000;">'
+    +   '<svg xmlns="http://www.w3.org/2000/svg" width="52" height="22" viewBox="0 0 165 70"><text x="58" y="50" font-family="Arial" font-size="38" fill="white" text-anchor="start"></text><path d="M44 14c-2.2 2.6-5.8 4.6-9.3 4.3-.4-3.6 1.3-7.4 3.4-9.8C40.3 6 44.1 4 47.2 3.8c.4 3.7-1.1 7.4-3.2 10.2zm3.1 5c-5.1-.3-9.5 2.9-12 2.9-2.4 0-6.2-2.7-10.2-2.7C18.7 19.4 12 24 12 33.6c0 5.8 2.3 11.9 5.1 15.9 2.4 3.3 4.5 6 7.6 6 3 0 4.3-2 8-2 3.8 0 4.8 2 8.1 2 3.1 0 5.3-2.8 7.3-5.8 2.3-3.4 3.3-6.7 3.4-6.9-.2 0-6.5-2.5-6.5-9.6 0-6 4.9-8.8 5.1-9-2.8-4.1-7.1-4.5-8.6-4.6l-.3-.6z" fill="white"/><text x="62" y="50" font-family="-apple-system,BlinkMacSystemFont,Arial" font-size="26" font-weight="600" fill="white">Pay</text></svg>'
+    + '</span>'
+    + '</div></div>'
     + '<div class="product-meta"><div class="meta-row"><span class="meta-label">Skin Type</span><span class="meta-val">' + product.skinType + '</span></div><div class="meta-row"><span class="meta-label">Volume</span><span class="meta-val">' + product.volume + '</span></div><div class="meta-row"><span class="meta-label">Origin</span><span class="meta-val">' + product.origin + '</span></div></div>'
     + '</div></div></div></section>'
 
